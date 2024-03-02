@@ -1,0 +1,33 @@
+#include<stdio.h>
+int linear(int n[],int );
+int main()
+{
+	int k,i;
+	int arr[10];
+	printf("Enter 10 elements: ");
+	for(i=0;i<10;i++)
+	{
+		scanf("%d",&arr[i]);
+	}
+	printf("Enter an element to search: ");
+	scanf("%d",&k);
+	if(linear(arr,k))
+	{
+		printf("The element is found");
+	}
+	else
+	{
+		printf("The element is not found");
+	}
+}
+int linear(int arr[],int k)
+{
+	for(int i=0;i<10;i++)
+	{
+		if(arr[i]==k)
+		{
+			return 1;
+		}
+	}
+	return 0;
+}
