@@ -1,0 +1,55 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define MAX_SIZE 100
+int a[MAX_SIZE], cap=0;
+void print()
+{
+	if(cap==0)
+	{
+		printf("List is Empty\n");
+	}
+	else
+	{
+		printf("Listed Elements:\n");
+		for(int i=0;i<cap;i++)
+		{
+			printf("%d is inserted\n",a[i]);
+		}
+		print("\n");
+	}
+}
+void ins(int data)
+{
+	if(cap==MAX_SIZE)
+	{
+		printf("List is full, cannot be inserted\n\n");
+	}
+	a[cap++]=data;
+	printf("%d is inserted successfully\n\n",data);
+}
+void del()
+{
+	if(cap==0)
+	{
+		printf("Cannot delete\n\n");
+	}
+	else
+	{
+		printf("%d is deleted from begining",a[0]);
+		for(int i=0;i<cap-1;i++)
+		{
+			a[i]=a[i+1];
+		}
+		cap--;
+	}
+}
+int main()
+{
+	ins(4);
+	ins(5);
+	ins(6);
+	print();
+	del();
+	ins(100);
+	print();
+}
