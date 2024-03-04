@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX_SIZE 100 
+int list[MAX_SIZE];
+int capacity = 0;
+void printList() {
+    if (capacity == 0) {
+        printf("List is empty\n");
+    } else {
+        printf("List elements: ");
+        for (int i = 0; i < capacity; i++) {
+            printf("%d ", list[i]);
+        }
+        printf("\n");
+    }
+}
+void insertAtEnd(int data) {
+    if (capacity == MAX_SIZE) {
+        printf("List is full, cannot insert\n");
+        return;
+    }
+    list[capacity++] = data;
+    printf("%d inserted successfully\n", data);
+}
+void deleteAtBeginning() {
+    if (capacity == 0) {
+        printf("List is empty, cannot delete\n");
+    } else {
+        printf("%d deleted from the beginning\n", list[0]);
+        for (int i = 0; i < capacity - 1; i++) {
+            list[i] = list[i + 1];
+        }
+        capacity--;
+    }
+}
+int main() {
+    insertAtEnd(4);
+    insertAtEnd(7);
+    printList();
+    deleteAtBeginning();
+    printList();
+    insertAtEnd(9);
+    printList();
+}
